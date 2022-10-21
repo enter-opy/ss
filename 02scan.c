@@ -28,7 +28,7 @@ int main(void) {
 	}
 	
 	printf("Seek sequence:\n");
-	if (initial_direction) {
+	if (!initial_direction) {
 		for (int i = 0; i < n; i++) {
 			if (head_position < requests[i]) {
 				flag = i;
