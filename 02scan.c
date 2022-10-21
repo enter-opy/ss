@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(void) {
-	int n, head_position, total_head_movement, initial_direction, min, temp, flag;
+	int n, head_position, total_head_movement = 0, initial_direction, min, temp, flag;
 
 	printf("Enter the number of requests: ");
 	scanf("%d", &n);
