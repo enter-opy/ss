@@ -8,7 +8,7 @@ int main()
 
 	int a[n];
 
-	for(i = 0; i < n; i++){
+	for (int i = 0; i < n; i++) {
 		a[i] = 0;
 	}
 
@@ -16,7 +16,6 @@ int main()
 	scanf("%d", &an);
 
 	printf("Enter index of already allocated blocks: ");
-
 	for (int i = 0; i < an; i++) {
 		scanf("%d", &s);
 		a[s] = 1;
@@ -28,10 +27,10 @@ int main()
 
 		printf("Allocated blocks:\n");
 
-		for (int i = 0; i < l; i++) {
+		for(int i = 0; i < l; i++) {
 			if (a[s] == 0) {
 				printf("-->%d\n", s);
-				a[s++] = 1;
+				a[s++]=1;
 			} else {
 				while(a[s] != 0) {
 					printf("%d is already allocated\n", s);
@@ -46,6 +45,5 @@ int main()
 		printf("\nDo you want to continue?(1.yes/0.No): ");
 		scanf("%d", &c);
 	} while (c != 0);
-
 	return 0;
 }
