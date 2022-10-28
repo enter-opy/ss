@@ -2,7 +2,10 @@
 #include <stdlib.h>
 
 int main(void) {
-	int n, head_position, total_head_movement = 0, initial_direction, min, temp, flag;
+	int n, head_position, disk_size, total_head_movement = 0, initial_direction, min, temp, flag;
+	
+	printf("Enter the disk size: ");
+	scanf("%d", &disk_size);	
 
 	printf("Enter the number of requests: ");
 	scanf("%d", &n);
@@ -29,6 +32,7 @@ int main(void) {
 	
 	printf("Seek sequence:\n");
 	if (!initial_direction) {
+		printf("oooo\n");
 		for (int i = 0; i < n; i++) {
 			if (head_position < requests[i]) {
 				flag = i;
@@ -45,6 +49,8 @@ int main(void) {
 			printf("%d\t", requests[i]);
 			head_position = requests[i];		
 		}
+
+		total_head_movement += (abs(head_position - 0));
 	} else {
 		for (int i = n - 1; i >= 0; i--) {
 			if (head_position > requests[i]) {
@@ -62,6 +68,8 @@ int main(void) {
 			printf("%d\t", requests[i]);
 			head_position = requests[i];		
 		}
+
+		total_head_movement += (abs(head_position - disk_size));
 	}
 
 	printf("\nTotal head movement: %d", total_head_movement);
