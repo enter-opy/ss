@@ -32,7 +32,6 @@ int main(void) {
 	
 	printf("Seek sequence:\n");
 	if (!initial_direction) {
-		printf("oooo\n");
 		for (int i = 0; i < n; i++) {
 			if (head_position < requests[i]) {
 				flag = i;
@@ -44,8 +43,8 @@ int main(void) {
 			head_position = requests[i];	
 		}
 
-		total_head_movement += (abs(head_position - disk_size));
-		head_size = disk_size;
+		total_head_movement += (abs(head_position - 0));
+		head_position = 0;
 
 		for (int i = flag; i >= 0; i--) {
 			total_head_movement += (abs(head_position - requests[i]));
@@ -53,8 +52,7 @@ int main(void) {
 			head_position = requests[i];		
 		}
 
-		total_head_movement += (abs(head_position - 0));
-		head_position = 0;
+		
 	} else {
 		for (int i = n - 1; i >= 0; i--) {
 			if (head_position > requests[i]) {
@@ -67,13 +65,14 @@ int main(void) {
 			head_position = requests[i];		
 		}
 
+		total_head_movement += (abs(head_position - disk_size));
+		head_position = disk_size;
+
 		for (int i = flag; i < n; i++) {
 			total_head_movement += (abs(head_position - requests[i]));
 			printf("%d\t", requests[i]);
 			head_position = requests[i];		
 		}
-
-		//total_head_movement += (abs(head_position - disk_size));
 	}
 
 	printf("\nTotal head movement: %d", total_head_movement);
