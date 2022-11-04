@@ -41,8 +41,11 @@ int main(void) {
 			
 			total_head_movement += (abs(head_position - requests[i]));
 			printf("%d\t", requests[i]);
-			head_position = requests[i];		
+			head_position = requests[i];	
 		}
+
+		total_head_movement += (abs(head_position - disk_size));
+		head_size = disk_size;
 
 		for (int i = flag; i >= 0; i--) {
 			total_head_movement += (abs(head_position - requests[i]));
@@ -51,6 +54,7 @@ int main(void) {
 		}
 
 		total_head_movement += (abs(head_position - 0));
+		head_position = 0;
 	} else {
 		for (int i = n - 1; i >= 0; i--) {
 			if (head_position > requests[i]) {
@@ -69,7 +73,7 @@ int main(void) {
 			head_position = requests[i];		
 		}
 
-		total_head_movement += (abs(head_position - disk_size));
+		//total_head_movement += (abs(head_position - disk_size));
 	}
 
 	printf("\nTotal head movement: %d", total_head_movement);
